@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    html,
+    body {
+      background-color: #212121;
+      color: #fff;
+    }
+    .container {
+      height: 200px;
+      width: 200px;
+      border: 1px solid #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #child {
+      height: 50%;
+      width: 50%;
+      border: 1px solid #fff;
+      border-radius: 50%;
+    }
+    #lightButton {
+      height: 20px;
+      width: 40px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div id="child"></div>
+      <button id="lightButton">Off</button>
+    </div>
+  </body>
+  <script>
+    let light = document.getElementById("child");
+    let lightButton = document.getElementById("lightButton");
+    let onOffButton;
+    lightButton.addEventListener("click", function () {
+      if (!onOffButton) {
+        onOffButton = true;
+        light.style.backgroundColor = "#fff";
+        light.style.boxShadow = "0 0 1000px #fff";
+        light.style.border = "none";
+        lightButton.innerText = "On";
+      } else {
+        onOffButton = false;
+        light.style.backgroundColor = "transparent";
+        light.style.boxShadow = "0 0 0 0";
+        lightButton.innerText = "Off";
+        light.style.border = "1px solid #fff";
+      }
+    });
+  </script>
+</html>
